@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import blogPostsData from '@/src/data/blog-posts.json';
+import { BlogPost } from '@/src/types/blog';
 
 export default function FeaturedPosts() {
   // Take first 2 posts as featured
@@ -11,7 +13,8 @@ export default function FeaturedPosts() {
     return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   };
 
-  const posts = blogPostsData.slice(0, 2);
+  const posts = (blogPostsData as BlogPost[]).slice(0, 2);
+  
   return (
     <section className="py-20 lg:py-32 bg-black-primary relative">
       {/* Background pattern */}
@@ -37,7 +40,7 @@ export default function FeaturedPosts() {
 
         {/* Posts Grid */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {posts.map((post: any, index) => {
+          {posts.map((post: BlogPost, index) => {
             const hasMedia = post.image || post.videoEmbed || post.localVideo || (post.images && post.images.length > 0);
             const mediaSource = post.image || (post.images && post.images[0]) || (post.videoEmbed ? getYouTubeThumbnail(post.videoEmbed) : null);
 
@@ -49,8 +52,8 @@ export default function FeaturedPosts() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Link href="/blog" className="block group h-full">
-                  <article className="bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden hover:border-red-primary/50 transition-all duration-300 h-full flex flex-col">
+                <Link href={`/blog/${post.id}`} className="block group h-full">
+                  <article className="bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden hover:border-red-primary/50 transition-all duration-300 h-full flex flex-col shadow-2xl shadow-black">
                     {/* Image/Media Section */}
                     {hasMedia && (
                       <div className="relative aspect-video bg-black-tertiary overflow-hidden">
@@ -64,18 +67,19 @@ export default function FeaturedPosts() {
                             onMouseOut={(e) => e.currentTarget.pause()}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
-                        ) : (
-                          <img
-                            src={mediaSource || ''}
+                        ) : mediaSource ? (
+                          <Image
+                            src={mediaSource}
                             alt={post.title}
+                            fill
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
-                        )}
+                        ) : null}
                         <div className="absolute inset-0 bg-gradient-to-t from-black-primary/80 via-transparent to-transparent z-10" />
 
                         {(post.videoEmbed || post.localVideo) && (
                           <div className="absolute inset-0 flex items-center justify-center z-10">
-                            <div className="w-16 h-16 rounded-full bg-red-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                            <div className="w-16 h-16 rounded-full bg-red-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl shadow-red-primary/20">
                               <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z" />
                               </svg>
@@ -93,28 +97,26 @@ export default function FeaturedPosts() {
                     )}
 
                     {/* Content */}
-                    <div className="p-6 flex-grow flex flex-col relative">
+                    <div className="p-8 flex-grow flex flex-col relative">
                       {!hasMedia && (
-                        <div className="absolute top-6 right-6">
+                        <div className="absolute top-8 right-8">
                            <span className="px-3 py-1 bg-red-primary/10 text-red-accent border border-red-primary/20 text-xs font-semibold rounded-full">
                              {post.badge}
                            </span>
                         </div>
                       )}
-                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-accent transition-colors duration-300">
+                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-red-accent transition-colors duration-300">
                         {post.title}
                       </h3>
-                      <p className="text-gray-muted leading-relaxed flex-grow">
-                        {post.description && post.description.length > 150 
-                          ? post.description.substring(0, 150) + '...'
-                          : post.description}
+                      <p className="text-gray-muted leading-relaxed flex-grow line-clamp-3">
+                        {post.description}
                       </p>
 
                       {/* Read more */}
-                      <div className="mt-6 flex items-center text-red-accent text-sm font-medium">
-                        <span>Read More</span>
+                      <div className="mt-8 flex items-center text-red-accent text-sm font-bold tracking-widest uppercase group-hover:gap-4 gap-2 transition-all">
+                        <span>The Full Log</span>
                         <svg
-                          className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                          className="w-5 h-5 transition-transform duration-300"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
