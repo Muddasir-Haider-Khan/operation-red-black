@@ -73,14 +73,16 @@ export default function About() {
               <div className="absolute inset-0 border-2 border-red-primary/30 rounded-lg" />
               <div className="absolute inset-4 border border-red-accent/20 rounded-lg" />
 
-              {/* Content placeholder */}
-              <div className="absolute inset-8 bg-gradient-to-br from-black-tertiary to-black-primary rounded-lg flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-red-primary to-red-accent flex items-center justify-center">
-                    <span className="text-3xl font-bold text-white">H</span>
-                  </div>
-                  <p className="text-gray-muted text-sm">Creative Director</p>
-                  <p className="text-white font-semibold mt-2">Habibullah</p>
+              {/* Image content */}
+              <div className="absolute inset-8 rounded-lg overflow-hidden flex items-center justify-center bg-black-tertiary">
+                <img
+                  src="/creative-director.jpg"
+                  alt="Habibullah - Creative Director"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black-primary/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                  <p className="text-red-accent text-sm font-semibold tracking-wider uppercase">Creative Director</p>
+                  <p className="text-white font-bold text-xl">Habibullah</p>
                 </div>
               </div>
 

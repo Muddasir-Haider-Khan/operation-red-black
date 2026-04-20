@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Gallery from '@/components/Gallery';
 import blogPostsData from '@/src/data/blog-posts.json';
 
 export async function generateStaticParams() {
@@ -46,21 +47,47 @@ export default async function BlogPostPage({
             </div>
           </header>
 
-          {/* Placeholder Image (Strict adherence to rule 5) */}
+          {/* Main Media (Video or Image Placeholder) */}
           <div className="relative aspect-video bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden mb-12 flex items-center justify-center">
-             <div className="w-24 h-24 rounded-full bg-red-primary/10 flex items-center justify-center">
-               <svg
-                 className="w-12 h-12 text-red-accent/60"
-                 fill="none"
-                 stroke="currentColor"
-                 viewBox="0 0 24 24"
-               >
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-               </svg>
-             </div>
-             <div className="absolute top-4 right-4 bg-black/60 px-3 py-1 rounded-md text-xs text-gray-400 border border-gray-800">
-               Image Placeholder
-             </div>
+            {post.videoEmbed ? (
+              <iframe
+                src={post.videoEmbed}
+                title={post.title}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            ) : post.localVideo ? (
+              <video
+                src={post.localVideo}
+                controls
+                className="w-full h-full object-contain bg-black"
+                playsInline
+              />
+            ) : post.image ? (
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <>
+                 <div className="w-24 h-24 rounded-full bg-red-primary/10 flex items-center justify-center">
+                   <svg
+                     className="w-12 h-12 text-red-accent/60"
+                     fill="none"
+                     stroke="currentColor"
+                     viewBox="0 0 24 24"
+                   >
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                   </svg>
+                 </div>
+                 <div className="absolute top-4 right-4 bg-black/60 px-3 py-1 rounded-md text-xs text-gray-400 border border-gray-800">
+                   Image Placeholder
+                 </div>
+              </>
+            )}
           </div>
 
           {/* Body Content */}
@@ -71,6 +98,9 @@ export default async function BlogPostPage({
               </p>
             ))}
           </div>
+
+          {/* Image Gallery (if multiple images exist) */}
+          <Gallery images={post.images} />
 
           {/* Back Navigation */}
           <div className="mt-16 pt-8 border-t border-black-secondary flex justify-center">

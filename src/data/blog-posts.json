@@ -2,37 +2,45 @@
   {
     "id": "ccr-q4",
     "title": "CCR Q4",
-    "description": "",
+    "description": "Critical Creative Reflection Question 4: How did you integrate technologies – software, hardware and online – in this project?",
     "badge": "Project",
-    "date": "2024"
+    "date": "2024",
+    "videoEmbed": "https://www.youtube.com/embed/u1iYPhJ3H-4"
   },
   {
     "id": "ccr-q3",
     "title": "CCR Q3",
-    "description": "",
+    "description": "Critical Creative Reflection Question 3: How did your production skills develop throughout this project?",
     "badge": "Project",
-    "date": "2024"
+    "date": "2024",
+    "videoEmbed": "https://www.youtube.com/embed/HuLF_F5Dl8A"
   },
   {
     "id": "ccr-q2",
     "title": "CCR Q2",
-    "description": "",
+    "description": "Critical Creative Reflection Question 2: How does your product engage with audiences and how would it be distributed as a real media text?",
     "badge": "Project",
-    "date": "2024"
+    "date": "2024",
+    "videoEmbed": "https://www.youtube.com/embed/4KSWvFaybf4"
   },
   {
     "id": "film-screening",
     "title": "Film Screening",
     "description": "Today was the film screening event in our college where the projects of all the students were showed on an SMD screen in the Gym Hall. It was a great experience looking at the creative view and skills of all our piers. This event was a great addition to our term and everyone was really impressed as this was something implemented by our new media teacher who just joined the faculty this year. This was something new for us because it had never taken place in our college before.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "images": [
+      "/screening/screening-1.jpg",
+      "/screening/screening-2.jpg"
+    ]
   },
   {
     "id": "final-product",
     "title": "Final Product",
     "description": "Luckily My \"First Draft\" is also the \"Final product\". I was one of only 3 students in or class who's First draft was passed by our media teacher as a Final product. Basically we three were the best filmmakers in class.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "videoEmbed": "https://www.youtube.com/embed/h1AySNglvgU"
   },
   {
     "id": "ccr-q1",
@@ -46,14 +54,22 @@
     "title": "Premiere Pro Vs Davinci",
     "description": "Now I am at the last stage of the production process and I have to make a choice between davinci resolve and Adobe Premiere Pro. I Have used a bit of both but I have more experience with Adobe so I think I'll be going with adobe.\n\nThe main reason for going with adobe is first of all my mindset is a bit straight forward I dont like investing in different things so basically if I learn two skills that clash together it kind of triggers me. This project will polish my Adobe Skills a lot and secondly the UI and Everything on Adobe is very easy to use compared to Davinci. shifting from any other software to Davinci straight up feels like switching from a an Automatic car to a Boeing 777.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "image": "/premiere-vs-davinci.webp"
   },
   {
     "id": "__bts",
     "title": "BTS",
     "description": "Today was shoot day and was Fun, hectic........ and a lot more stuff.\n\nBut in the end the shoot came out good and we had a great time. Something the four of us will never forget for sure.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "images": [
+      "/bts/bts-1.jpg",
+      "/bts/bts-2.jpg",
+      "/bts/bts-3.jpg",
+      "/bts/bts-4.jpg",
+      "/bts/bts-5.jpg"
+    ]
   },
   {
     "id": "shoot-day",
@@ -72,9 +88,10 @@
   {
     "id": "mood-board",
     "title": "Mood Board",
-    "description": "",
+    "description": "Visualizing the aesthetic and atmosphere of Operation Red & Black. This mood board captures the stark contrasts, cinematic lighting, and intense energy that define our thriller's world.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "image": "/mood-board.png"
   },
   {
     "id": "inspiration",
@@ -102,42 +119,57 @@
     "title": "The Caste",
     "description": "For the Caste I needed two people who could be shown as exact opposites. I chose two friends of mine one really tall and another pretty short.\n\nIt will be pretty easy to show the contrast between both these actors, one will be wearing black clothing and the other will be wearing Red clothing. The roles of both are still to be decided according to available wardrobe.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "image": "/caste.jpg"
   },
   {
     "id": "budgeting",
     "title": "Budgeting",
     "description": "the Expected budget for this film opening is not too high because I already have all the Equipment I will be using so there wont be any rental costs. The main costs will be the logistics and food for the actors and a secondary videographer who will be helping out in some shots.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "image": "/budgeting.png"
   },
   {
     "id": "pre-liminary-task-3",
     "title": "Pre-Liminary Task 3",
     "description": "My Last Pre-Liminary task was a photography task was a photography task and I was supposed to capture nature specially because of the beautiful weather in our city recently. The submission was a bit late but I got some amazing pictures",
     "badge": "Project",
-    "date": "2024"
+    "date": "2024",
+    "images": [
+      "/prelim-3/nature-1.jpg",
+      "/prelim-3/nature-2.jpg",
+      "/prelim-3/nature-3.jpg",
+      "/prelim-3/nature-4.jpg",
+      "/prelim-3/nature-5.jpg",
+      "/prelim-3/nature-6.jpg",
+      "/prelim-3/nature-7.jpg",
+      "/prelim-3/nature-8.jpg"
+    ]
   },
   {
     "id": "pre-liminary-task-1",
     "title": "Pre-Liminary Task 2",
     "description": "For My second Pre-liminary Task I was assigned to make a short edit or highlight video of anything I am interested in.\n\nI Have good connections in the Event Industry so I Decided to get a media pass for an upcoming event through a friend and I made a highlight reel of that event. The Organisers ended Up Liking the Reel so they even posted it on their socials.",
     "badge": "Project",
-    "date": "2024"
+    "date": "2024",
+    "localVideo": "/prelim-2.mp4"
   },
   {
     "id": "preleminary-task-1",
     "title": "Preleminary task 1",
     "description": "For my preliminary task I chose to create a video on the famous Pakistan monument. It felt like the perfect subject, a blend of architecture and history.\n\nMy gear for this task was limited, so I used the DJI Air 2S. It was the only equipment I could source, and honestly, it proved to be a game-changer. The entire video was shot from an aerial perspective, giving a unique, almost cinematic feel to the monument. Initially, I considered using the drone as a ground-level camera to capture closer angles, but in a public space, it felt awkward. I couldn’t shake off the feeling that I looked like a maniac trying to maneuver a drone inches from the ground.",
     "badge": "Project",
-    "date": "2024"
+    "date": "2024",
+    "videoEmbed": "https://www.youtube.com/embed/TJ8p-_5Tf6k"
   },
   {
     "id": "history-of-films",
     "title": "History of Films",
     "description": "The history of film started in the late 19th century when motion picture technology was invented. Pioneers in this were Thomas Edison and the Lumiere brothers as they were the ones who invented devices that could now take video, even though these were short and without any audio it was still a huge leap forward from just pictures. The real rise of films began in the 1940s because all the fun stuff was now here. By fun stuff i mean color films, special effects and new genres. By the 1980s the industry was huge.",
     "badge": "Article",
-    "date": "2024"
+    "date": "2024",
+    "image": "/history-of-films.jpg"
   },
   {
     "id": "genre",
@@ -145,5 +177,31 @@
     "description": "What is the meaning the word \"Genre\"?\n\nWell according to google it means \"a category of artistic composition, as in music or literature, categorized by similarities in form, style or subject matter\". This explanation is first of all very difficult and second of all not specifically for films, So basically in easy words genre is a method of grouping similar film together. For example the genre \"horror\" includes films that have jump scares or other disturbing scenes. Different Genres can also be mixed to produce films for example \"horror comedy\"\n\nComedy: It is a genre that focuses on making the audience laugh by adding funny scenes to the film.\n\nMystery: It is a genre in which the main event is kept a mystery until the end of the film and in usually contains a \"plot twist\" as well.\n\nHorror: It is a genre that intends to frighten or disturb the audience through jump scares or disturbing scenes.\n\nRomance: It is a genre in which a love story is the main plot and usually closes with a happy ending.\n\nAdventure: It is a genre where the protagonist goes on a long journey in search of something and encounters hurdles in the way.\n\nCrime: It is a genre that involves major crimes such as murders or kidnappings and involves the story of the suspects, witnesses, Investigators and victims.\n\nAction: It is a genre where the protagonist goes into a series of events that involve dynamic scenes such as fights, escape scenes or even high speed chases.\n\nSci-Fi: It is a genre in which the protagonist navigates futuristic worlds and advanced technology this genre often involves alien life, space travel or even time travel.",
     "badge": "Article",
     "date": "2024"
+  },
+  {
+    "id": "my-favourite-tv-shows",
+    "title": "My Favourite TV Shows",
+    "description": "As i said earlier i really love watching Tv Shows and series, so these will have more love behind them compared to my favorite movies. The only beef i have with Tv shows is that they take a lot of time to watch, this is because i mostly try to binge watch because i always want to know what happens in the next episode.\n\nBreaking Bad\n\nThis series is just a masterpiece and anyone who has watched it will agree with me. I mean the way Walter White turns from a boring old chemistry teacher to a drug lord is just phenomenal. You though i would miss out jessie pinkman? No! jessie was a very fun guy but i always ended up feeling very bad for him, there were just too many tragedies that happened to him.\n\nPeaky Blinders\n\nMy favorite TV show of all time. I mean do i even have to say anything? the mis-en-scene was just top notch, the suits were what i loved the most. A honorable mention i would like to add here would be Luca Changretta i mean everyone loves Thomas Shelby and Cillian murphy but Changretta holds a special place in my heart. Adrien Brody really nailed this role.\n\nGame Of Thrones\n\nGame of thrones it would have been up there as my favorite series of all time replacing peaky blinders but the last season ruined it, anyone who has watched the series can understand me. Other then this the series is great, the story, the production, they nailed everything other then the last season. The character i loved most in the series was Arya stark because of the character development, she was the youngest stark and most of all in a misogynistic world and still she single-handedly avenged her father.",
+    "badge": "Article",
+    "date": "2024",
+    "image": "/peaky-blinders.jpg",
+    "images": [
+      "/favourite-tv-shows.jpg",
+      "/peaky-blinders.jpg",
+      "/game-of-thrones.jpg"
+    ]
+  },
+  {
+    "id": "my-favourite-films",
+    "title": "My Favourite Films",
+    "description": "I am not a huge fan of movies but i do love watching Series, don't ask me why cuz many people have asked me the same question \"why do you like TV shows more then movies\". I just don't have a valid reason. Might be because TV shows have a larger story and more character development?\n\nMovies I like\n\nThe Old Guard\n\nI really like the story of this film and I overall love the concept of immortality in this movie, it is shown as both a curse and a power which I love. The action scenes from this movie were also very good as they hook the viewers in and it almost felt like I was in the fights.\n\nJoker\n\nI recommend this one to literally anyone who asks me for a movie recommendation. Todd Philip’s direction became the 1st R rated movie to gross $1 Billion at the box office. The movie deals with the themes of isolation, existentialism, conformity and compulsion. Joaquin Phoenix who played Arthur Fleck bagged an Oscar for this memorable performance. The dark visuals of the 1980s Big Apple amplify every minute of this work of art.\n\nThe Godfather\n\nA personal favorite, this cinematic masterpiece is one of the highest-rated movies on IMDb with a staggering rating of 9.2. the 20th-century Italian crime epic’s direction encapsulates the literary essence of the novel on the silver screen and Its cinematography visualized the depth of every scene to its potential.\n\nIT (2017)\n\nThe summer holiday antics of seven socially awkward nerdy kids, this movie was my 1st experience of cosmic horror, the character of Pennywise. To me, in every scene where Pennywise is anticipated to appear was memorable yet frightening, his arbitrary expressions alone made this movie an easy top 10 on my list.",
+    "badge": "Article",
+    "date": "2024",
+    "images": [
+      "/films/old-guard.jpg",
+      "/films/joker.jpg",
+      "/films/godfather.jpg",
+      "/films/it.jpg"
+    ]
   }
 ]

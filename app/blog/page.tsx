@@ -7,6 +7,11 @@ import Footer from '@/components/Footer';
 import blogPostsData from '@/src/data/blog-posts.json';
 
 export default function BlogPage() {
+  const getYouTubeThumbnail = (url: string) => {
+    const videoId = url.split('/').pop();
+    return `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+  };
+
   const blogPosts = blogPostsData;
   return (
     <>
@@ -35,23 +40,82 @@ export default function BlogPage() {
         <section className="py-16 lg:py-24">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 lg:gap-12">
-              {blogPosts.map((post, index) => (
-                <motion.article
-                  key={post.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden hover:border-red-primary/50 transition-all duration-300"
-                >
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {/* Image */}
-                    <div className="relative aspect-video md:aspect-square bg-black-tertiary">
-                      <div className="absolute inset-0 bg-gradient-to-br from-red-primary/10 to-transparent" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-red-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              {blogPosts.map((post: any, index) => {
+                const hasMedia = post.image || post.videoEmbed || post.localVideo || (post.images && post.images.length > 0);
+                const mediaSource = post.image || (post.images && post.images[0]) || (post.videoEmbed ? getYouTubeThumbnail(post.videoEmbed) : null);
+
+                return (
+                  <motion.article
+                    key={post.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden hover:border-red-primary/50 transition-all duration-300"
+                  >
+                    <div className={hasMedia ? "grid md:grid-cols-3 gap-6" : "block"}>
+                      {/* Media Section */}
+                      {hasMedia && (
+                        <div className="relative aspect-video md:aspect-square bg-black-tertiary overflow-hidden">
+                          {post.localVideo ? (
+                            <video
+                              src={post.localVideo}
+                              muted
+                              loop
+                              playsInline
+                              onMouseOver={(e) => e.currentTarget.play()}
+                              onMouseOut={(e) => e.currentTarget.pause()}
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                          ) : (
+                            <img
+                              src={mediaSource || ''}
+                              alt={post.title}
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                          
+                          {(post.videoEmbed || post.localVideo) && (
+                            <div className="absolute inset-0 flex items-center justify-center z-10">
+                              <div className="w-12 h-12 rounded-full bg-red-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                                <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M8 5v14l11-7z" />
+                                </svg>
+                              </div>
+                            </div>
+                          )}
+
+                          <div className="absolute top-4 left-4 z-20">
+                            <span className="px-3 py-1 bg-red-primary/90 text-white text-xs font-semibold rounded-full shadow-lg">
+                              {post.badge}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Content Section */}
+                      <div className={`${hasMedia ? "md:col-span-2" : ""} p-6 md:p-8 flex flex-col justify-center relative`}>
+                        {!hasMedia && (
+                           <div className="absolute top-6 right-8">
+                             <span className="px-3 py-1 bg-red-primary/10 text-red-accent border border-red-primary/20 text-xs font-semibold rounded-full">
+                               {post.badge}
+                             </span>
+                           </div>
+                        )}
+                        <div className="text-gray-muted text-sm mb-2">{post.date}</div>
+                        <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-red-accent transition-colors duration-300">
+                          {post.title}
+                        </h2>
+                        <p className="text-gray-muted leading-relaxed mb-6">
+                          {post.description && post.description.length > 180 
+                            ? post.description.substring(0, 180) + '...'
+                            : post.description}
+                        </p>
+                        <Link href={`/blog/${post.id}`} className="flex items-center text-red-accent font-medium mt-auto group-hover:underline">
+                          <span>View Details</span>
                           <svg
-                            className="w-8 h-8 text-red-accent"
+                            className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -60,53 +124,15 @@ export default function BlogPage() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={2}
-                              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.668z"
-                            />
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              d="M17 8l4 4m0 0l-4 4m4-4H3"
                             />
                           </svg>
-                        </div>
-                      </div>
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-red-primary/90 text-white text-xs font-semibold rounded-full">
-                          {post.badge}
-                        </span>
+                        </Link>
                       </div>
                     </div>
-
-                    {/* Content */}
-                    <div className="md:col-span-2 p-6 md:p-8 flex flex-col justify-center">
-                      <div className="text-gray-muted text-sm mb-2">{post.date}</div>
-                      <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-red-accent transition-colors duration-300">
-                        {post.title}
-                      </h2>
-                      <p className="text-gray-muted leading-relaxed mb-6">
-                      {post.description && post.description.substring(0, 150) + '...'}
-                      </p>
-                      <Link href={`/blog/${post.id}`} className="flex items-center text-red-accent font-medium mt-auto group-hover:underline">
-                        <span>View Details</span>
-                        <svg
-                          className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                </motion.article>
-              ))}
+                  </motion.article>
+                );
+              })}
             </div>
           </div>
         </section>

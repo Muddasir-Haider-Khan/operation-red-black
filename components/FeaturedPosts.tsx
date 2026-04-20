@@ -6,6 +6,11 @@ import blogPostsData from '@/src/data/blog-posts.json';
 
 export default function FeaturedPosts() {
   // Take first 2 posts as featured
+  const getYouTubeThumbnail = (url: string) => {
+    const videoId = url.split('/').pop();
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  };
+
   const posts = blogPostsData.slice(0, 2);
   return (
     <section className="py-20 lg:py-32 bg-black-primary relative">
@@ -32,25 +37,84 @@ export default function FeaturedPosts() {
 
         {/* Posts Grid */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {posts.map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Link href="/blog" className="block group">
-                <article className="bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden hover:border-red-primary/50 transition-all duration-300 h-full">
-                  {/* Image */}
-                  <div className="relative aspect-video bg-black-tertiary overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black-primary/80 to-transparent z-10" />
+          {posts.map((post: any, index) => {
+            const hasMedia = post.image || post.videoEmbed || post.localVideo || (post.images && post.images.length > 0);
+            const mediaSource = post.image || (post.images && post.images[0]) || (post.videoEmbed ? getYouTubeThumbnail(post.videoEmbed) : null);
 
-                    {/* Placeholder image */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-red-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            return (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Link href="/blog" className="block group h-full">
+                  <article className="bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden hover:border-red-primary/50 transition-all duration-300 h-full flex flex-col">
+                    {/* Image/Media Section */}
+                    {hasMedia && (
+                      <div className="relative aspect-video bg-black-tertiary overflow-hidden">
+                        {post.localVideo ? (
+                          <video
+                            src={post.localVideo}
+                            muted
+                            loop
+                            playsInline
+                            onMouseOver={(e) => e.currentTarget.play()}
+                            onMouseOut={(e) => e.currentTarget.pause()}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        ) : (
+                          <img
+                            src={mediaSource || ''}
+                            alt={post.title}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black-primary/80 via-transparent to-transparent z-10" />
+
+                        {(post.videoEmbed || post.localVideo) && (
+                          <div className="absolute inset-0 flex items-center justify-center z-10">
+                            <div className="w-16 h-16 rounded-full bg-red-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                              <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Badge */}
+                        <div className="absolute top-4 left-4 z-20">
+                          <span className="px-3 py-1 bg-red-primary/90 text-white text-xs font-semibold rounded-full shadow-lg">
+                            {post.badge}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="p-6 flex-grow flex flex-col relative">
+                      {!hasMedia && (
+                        <div className="absolute top-6 right-6">
+                           <span className="px-3 py-1 bg-red-primary/10 text-red-accent border border-red-primary/20 text-xs font-semibold rounded-full">
+                             {post.badge}
+                           </span>
+                        </div>
+                      )}
+                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-accent transition-colors duration-300">
+                        {post.title}
+                      </h3>
+                      <p className="text-gray-muted leading-relaxed flex-grow">
+                        {post.description && post.description.length > 150 
+                          ? post.description.substring(0, 150) + '...'
+                          : post.description}
+                      </p>
+
+                      {/* Read more */}
+                      <div className="mt-6 flex items-center text-red-accent text-sm font-medium">
+                        <span>Read More</span>
                         <svg
-                          className="w-8 h-8 text-red-accent"
+                          className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -59,57 +123,16 @@ export default function FeaturedPosts() {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={2}
-                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.668z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
                           />
                         </svg>
                       </div>
                     </div>
-
-                    {/* Badge */}
-                    <div className="absolute top-4 left-4 z-20">
-                      <span className="px-3 py-1 bg-red-primary/90 text-white text-xs font-semibold rounded-full">
-                        {post.badge}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-accent transition-colors duration-300">
-                      {post.title}
-                    </h3>
-                    <p className="text-gray-muted leading-relaxed">
-                      {post.description}
-                    </p>
-
-                    {/* Read more */}
-                    <div className="mt-4 flex items-center text-red-accent text-sm font-medium">
-                      <span>Read More</span>
-                      <svg
-                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            </motion.div>
-          ))}
+                  </article>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
