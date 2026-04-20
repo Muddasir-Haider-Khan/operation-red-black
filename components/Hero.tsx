@@ -48,8 +48,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-lg sm:text-xl text-gray-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          A thrilling cinematic experience inspired by the intensity of Mission Impossible
-          and the precision of John Wick. A story of action, suspense, and determination.
+          Operation Red and black is a Thriller inspired by the Mission Impossible and John Wick Series'. It features two characters Red and black who are mastermind infiltrators and our hired for a job that many others have failed.
         </motion.p>
 
         <motion.div

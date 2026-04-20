@@ -25,9 +25,6 @@ export default function About() {
               viewport={{ once: true }}
               className="mb-4"
             >
-              <span className="text-red-accent font-semibold tracking-wider uppercase text-sm">
-                About Me
-              </span>
             </motion.div>
 
             <motion.h2
@@ -37,7 +34,7 @@ export default function About() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8"
             >
-              The Vision Behind the Project
+              About me
             </motion.h2>
 
             <motion.div
@@ -48,23 +45,17 @@ export default function About() {
               className="space-y-6 text-gray-muted text-lg leading-relaxed"
             >
               <p>
-                Hello! I&apos;m <span className="text-red-accent font-semibold">Habibullah</span>,
-                a creative professional with a passion for storytelling through visual media.
-                My journey in creative projects and event management has shaped my approach
-                to bringing ambitious ideas to life.
+                Hi, I'm <span className="text-red-accent font-semibold">Habibullah</span>.
+                <br /><br />
+                I've always enjoyed being part of creative projects, especially when it comes to organizing and managing events. While I do photography and love capturing moments, I'm more drawn to the planning side of things, though bringing ideas together, handling the details, and making sure everything runs smoothly on the day.
               </p>
 
               <p>
-                With extensive experience in photography and videography, I&apos;ve developed
-                a keen eye for capturing moments that resonate. My background in creative
-                projects has taught me the importance of attention to detail and the power
-                of visual storytelling.
+                Videography hasn't really been my favorite area, but every project is still a learning experience. I'm constantly figuring out what I enjoy most and where I can do my best work and for me, that's event management.
               </p>
 
               <p>
-                Beyond my professional pursuits, I find inspiration in traveling and cricket.
-                These experiences fuel my creativity and provide fresh perspectives that
-                influence my work.
+                Other than work I really enjoy travelling, especially when it's connected to projects or events. I also spend a lot of time following cricket I love the strategy and energy of the game.
               </p>
             </motion.div>
           </div>
