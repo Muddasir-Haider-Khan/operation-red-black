@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import blogPostsData from '../../../src/data/blog-posts.json';
+import blogPostsData from '@/src/data/blog-posts.json';
 
 export default function BlogPage() {
   const blogPosts = blogPostsData;

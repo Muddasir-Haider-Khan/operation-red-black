@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import blogPostsData from '../../../src/data/blog-posts.json';
+import blogPostsData from '@/src/data/blog-posts.json';
 
 export async function generateStaticParams() {
   return blogPostsData.map((post: any) => ({
@@ -16,7 +16,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const resolvedParams = await params;
-  const posts = getPosts();
+  const posts = blogPostsData;
   const post = posts.find((p: any) => p.id === resolvedParams.slug);
 
   if (!post) {

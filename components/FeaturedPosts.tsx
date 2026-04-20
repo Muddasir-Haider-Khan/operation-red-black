@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import blogPostsData from '../../src/data/blog-posts.json';
+import blogPostsData from '@/src/data/blog-posts.json';
 
 export default function FeaturedPosts() {
   // Take first 2 posts as featured
