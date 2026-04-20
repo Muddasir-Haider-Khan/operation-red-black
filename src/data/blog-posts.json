@@ -55,7 +55,7 @@
     "description": "Now I am at the last stage of the production process and I have to make a choice between davinci resolve and Adobe Premiere Pro. I Have used a bit of both but I have more experience with Adobe so I think I'll be going with adobe.\n\nThe main reason for going with adobe is first of all my mindset is a bit straight forward I dont like investing in different things so basically if I learn two skills that clash together it kind of triggers me. This project will polish my Adobe Skills a lot and secondly the UI and Everything on Adobe is very easy to use compared to Davinci. shifting from any other software to Davinci straight up feels like switching from a an Automatic car to a Boeing 777.",
     "badge": "Article",
     "date": "2024",
-    "image": "/premiere-vs-davinci.webp"
+    "image": "/editor-comparison.webp"
   },
   {
     "id": "__bts",
@@ -117,10 +117,11 @@
   {
     "id": "the-caste",
     "title": "The Caste",
-    "description": "For the Caste I needed two people who could be shown as exact opposites. I chose two friends of mine one really tall and another pretty short.\n\nIt will be pretty easy to show the contrast between both these actors, one will be wearing black clothing and the other will be wearing Red clothing. The roles of both are still to be decided according to available wardrobe.",
+    "description": "For the Caste I needed two people who could be shown as exact opposites. I chose two friends of mine one really tall and another pretty short. It will be pretty easy to show the contrast between both these actors, one will be wearing black clothing and the other will be wearing Red clothing. The roles of both are still to be decided according to available wardrobe.",
     "badge": "Article",
     "date": "2024",
-    "image": "/caste.jpg"
+    "image": "/caste/ahmed-omer.jpeg",
+    "images": ["/caste/ahmed-omer.jpeg"]
   },
   {
     "id": "budgeting",
@@ -128,7 +129,7 @@
     "description": "the Expected budget for this film opening is not too high because I already have all the Equipment I will be using so there wont be any rental costs. The main costs will be the logistics and food for the actors and a secondary videographer who will be helping out in some shots.",
     "badge": "Article",
     "date": "2024",
-    "image": "/budgeting.png"
+    "image": "/budgeting-plan.png"
   },
   {
     "id": "pre-liminary-task-3",
@@ -203,5 +204,30 @@
       "/films/godfather.jpg",
       "/films/it.jpg"
     ]
+  },
+  {
+    "id": "a-bit-about-me",
+    "title": "A Bit About Me",
+    "description": "I have no real experience in filmmaking. I mean, I do know how to fly FPV drones, but that isn't useful for real production—or maybe it is. We'll see. I do have some experience with video editing, but that's about it. [Full text pending update]",
+    "badge": "Media",
+    "date": "Feb 3",
+    "image": "/history-of-films.jpg"
+  },
+  {
+    "id": "annural-groovon-mv",
+    "title": "Annural Khalid x Groovon - Music Video",
+    "description": "A previous work collaboration featuring Annural Khalid. This project focused on smooth transitions and a sleek urban aesthetic, showcasing early forays into music video production and rhythmic editing.",
+    "badge": "Media",
+    "date": "2024",
+    "localVideo": "/annural-groovon.mp4"
+  },
+  {
+    "id": "operation-red-black-script",
+    "title": "Operation: Red and Black - The Script",
+    "description": "The detailed production script for our cinematic film opening. Shot-by-shot breakdown focusing on precision, tension, and the 'Mission: Impossible' aesthetic.",
+    "badge": "Pre-Production",
+    "date": "Feb 2",
+    "image": "/mood-board.png",
+    "content": "OPERATION: RED AND BLACK\nDetailed Production Script – Cinematic Format\nRuntime: 1:50\nFormat: Production-only (Shot-by-shot)\nV.O. (Male) throughout, ending at title reveal.\n\nDIRECTOR’S NOTE\nThis film opening should feel sleek, tense, and professional — minimal dialogue, heavy atmosphere.\nLighting emphasizes contrast: red and black hues dominate.\nCamera movement is smooth and deliberate — no handheld chaos.\nThe pacing builds from calm precision to controlled intensity.\nMusic: low synths, ticking rhythm, crescendo near the title.\n\nSCENE 1 – “THE SUIT-UP” (00:00–00:35)\nLocation: Dimly lit garage or storeroom\nLighting: One RGB panel light (warm tone), low-intensity fill from LED stick (side angle).\nSound: Low hum of synth; faint metallic clicks.\nSHOT 1A (00:00–00:05) – EXTREME CLOSE-UP (ECU)\nBlack leather gloves tighten. Soft light flickers across his hands. Camera locked on tripod — steady frame.\nV.O. (Male): “You’re not gonna find anyone better…”\n\nSHOT 1B (00:05–00:10) – CLOSE-UP (CU)\nMask slides over Red’s face. Light shifts slightly red from LED stick. Slow DOLLY-IN using gimbal.\n\nSHOT 1C (00:10–00:15) – MEDIUM SHOT (MS)\nBoth figures — Red & Black — zip duffel bags. Camera pans left as they turn simultaneously.\nMusic pulse begins (bass layer).\nV.O. (Male): “These two—they’re ghosts. Red and Black.”\n\nSHOT 1D (00:15–00:25) – INSERT / DETAIL SHOTS\n• Gloved hands loading pistols and tools.\n• Close-up of watch syncing (beep).\n• LED flicker timed to music beat.\nCamera: Handheld gimbal, slow motion. Lighting: Red bounce fill from panel light.\n\nSHOT 1E (00:25–00:35) – WIDE SHOT (WS)\nSilhouettes of both walking toward a car. Camera TRACKS BACK slowly; drone hovers above for aerial top-down pullout.\nV.O. (Male): “Once they’re in, there’s no trace left behind.”\nCut to black. Low bass hit transitions into engine rev.\n\nSCENE 2 – “THE DRIVE” (00:35–01:15)\nLocation: Empty street / parking lot at night.\nLighting: Natural streetlight + blue stick light inside car.\nSound: Engine idle, muffled synth beats.\nSHOT 2A (00:35–00:45) – INT. CAR – CLOSE-UP (CU)\nRed’s gloved hand grips steering wheel. Camera mounted on dashboard using tripod. Focus shift to side mirror reflection of Black loading weapon.\nV.O. (Male): “They work clean. Precise.”\n\nSHOT 2B (00:45–00:55) – WIDE SHOT (WS – DRONE)\nDrone follows the car exiting garage in slow motion. Tilt-up to reveal night skyline. LED taillights glow red against black asphalt.\n\nSHOT 2C (00:55–01:05) – MEDIUM SHOT (MS – MOVING)\nMounted gimbal shot from passenger seat. Camera pans to Black — calm, silent — checking scanner device. Red nods once.\nV.O. (Male): “Never loud. Never messy.”\n\nSHOT 2D (01:05–01:15) – AERIAL TRACKING (DRONE)\nOverhead drone shot follows car turning into industrial area. Cross-dissolve to next location. Bass builds.\n\nSCENE 3 – “THE TARGET ZONE” (01:15–01:45)\nLocation: Industrial site / warehouse exterior\nLighting: Stick light (red hue) hidden behind props for edge glow.\nSound: Tension pulse, scanner beeps, low wind.\nSHOT 3A (01:15–01:25) – WIDE SHOT (WS)\nBoth figures exit car. Camera TRACKS them from behind at waist level. Fog or dust in background for depth.\nV.O. (Male): “You see… when they move, it’s like clockwork.”\n\nSHOT 3B (01:25–01:35) – CLOSE-UP (CU)\nBlack kneels, activates handheld scanner. Light reflects off mask. Camera DOLLYS-IN slowly from right. Beeping increases.\n\nSHOT 3C (01:35–01:45) – DRONE OVERHEAD / HIGH ANGLE\nRed scans the perimeter. Both freeze as device pings green. Camera rises dramatically as the signal peaks.\nV.O. (Male): \"No hesitation. No noise. No mercy.\"\n\nSCENE 4 – \"TITLE REVEAL\" (01:45–01:50)\nSHOT 4A (01:45–01:48) – CLOSE-UP\nScanner flashes green. Cut to black instantly.\nSHOT 4B (01:48–01:50) – TITLE CARD\nBold red and black gradient appears center frame. Bass hit echoes and fades.\nV.O. (Male): \"They call it... Operation: Red and Black.\""
   }
 ]
