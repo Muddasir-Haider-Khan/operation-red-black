@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
+@theme {
+  /* Custom colors */
+  --color-black-primary: #0a0a0a;
+  --color-black-secondary: #1a1a1a;
+  --color-black-tertiary: #2a2a2a;
+  --color-red-primary: #dc2626;
+  --color-red-secondary: #991b1b;
+  --color-red-accent: #ef4444;
+  --color-gray-muted: #9ca3af;
+  --color-gray-light: #d1d5db;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0a0a0a;
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ef4444;
+}
+
+/* Selection */
+::selection {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* Nav link styles */
+.nav-link {
+  color: #9ca3af;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ef4444;
+}
+
+/* Gradient animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
 }
