@@ -4,35 +4,10 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-const blogPosts = [
-  {
-    id: 'film-screening',
-    title: 'Film Screening',
-    description:
-      'Experience the excitement of our college film screening event. The project was showcased on the SMD screen in the Gym Hall, bringing our vision to life for the entire college community.',
-    badge: 'Event',
-    date: '2024',
-  },
-  {
-    id: 'final-product',
-    title: 'Final Product',
-    description:
-      'The culmination of dedication and creativity. Proud to be one of only 3 students whose first draft was accepted, marking a significant milestone in this cinematic journey.',
-    badge: 'Project',
-    date: '2024',
-  },
-  {
-    id: 'trailer',
-    title: 'Official Trailer',
-    description:
-      'Watch the official trailer for Operation Red & Black. A glimpse into the action, suspense, and cinematic excellence that defines this project.',
-    badge: 'Video',
-    date: '2024',
-  },
-];
+import blogPostsData from '../../../src/data/blog-posts.json';
 
 export default function BlogPage() {
+  const blogPosts = blogPostsData;
   return (
     <>
       <Navbar />
@@ -110,9 +85,9 @@ export default function BlogPage() {
                         {post.title}
                       </h2>
                       <p className="text-gray-muted leading-relaxed mb-6">
-                        {post.description}
+                      {post.description && post.description.substring(0, 150) + '...'}
                       </p>
-                      <div className="flex items-center text-red-accent font-medium">
+                      <Link href={`/blog/${post.id}`} className="flex items-center text-red-accent font-medium mt-auto group-hover:underline">
                         <span>View Details</span>
                         <svg
                           className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
@@ -127,7 +102,7 @@ export default function BlogPage() {
                             d="M17 8l4 4m0 0l-4 4m4-4H3"
                           />
                         </svg>
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 </motion.article>

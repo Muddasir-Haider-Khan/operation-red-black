@@ -2,27 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
-const posts = [
-  {
-    id: 'film-screening',
-    title: 'Film Screening',
-    description:
-      'Experience the excitement of our college film screening event. The project was showcased on the SMD screen in the Gym Hall, bringing our vision to life for the entire college community.',
-    image: '/images/film-screening.jpg',
-    badge: 'Event',
-  },
-  {
-    id: 'final-product',
-    title: 'Final Product',
-    description:
-      'The culmination of dedication and creativity. Proud to be one of only 3 students whose first draft was accepted, marking a significant milestone in this cinematic journey.',
-    image: '/images/final-product.jpg',
-    badge: 'Project',
-  },
-];
+import blogPostsData from '../../src/data/blog-posts.json';
 
 export default function FeaturedPosts() {
+  // Take first 2 posts as featured
+  const posts = blogPostsData.slice(0, 2);
   return (
     <section className="py-20 lg:py-32 bg-black-primary relative">
       {/* Background pattern */}
