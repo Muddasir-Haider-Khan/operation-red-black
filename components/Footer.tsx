@@ -18,14 +18,14 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <Link href="/" className="inline-block">
-              <h3 className="text-xl font-bold">
-                <span className="text-red-accent">OPERATION</span>{' '}
-                <span className="text-white">RED & BLACK</span>
+            <Link href="/" className="inline-block group">
+              <h3 className="text-xl font-bold font-geist-mono tracking-tighter uppercase">
+                <span className="text-red-primary">OP:</span>
+                <span className="text-white group-hover:text-red-accent transition-colors duration-100">RED_BLACK</span>
               </h3>
             </Link>
-            <p className="text-gray-muted text-sm mt-2">
-              A cinematic thriller experience
+            <p className="text-gray-500 text-[10px] font-geist-mono mt-2 tracking-[0.3em] uppercase">
+              {"//"} CLASSIFIED_PRODUCTION_LOG
             </p>
           </motion.div>
 
@@ -39,15 +39,15 @@ export default function Footer() {
           >
             <Link
               href="/"
-              className="text-gray-muted hover:text-red-accent transition-colors duration-300 text-sm font-medium"
+              className="text-gray-500 hover:text-red-accent transition-all duration-100 text-[10px] font-geist-mono uppercase tracking-widest"
             >
-              Home
+              [ HOME ]
             </Link>
             <Link
               href="/blog"
-              className="text-gray-muted hover:text-red-accent transition-colors duration-300 text-sm font-medium"
+              className="text-gray-500 hover:text-red-accent transition-all duration-100 text-[10px] font-geist-mono uppercase tracking-widest"
             >
-              Blog
+              [ BLOG ]
             </Link>
           </motion.div>
 
@@ -59,12 +59,11 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center md:text-right"
           >
-            <p className="text-gray-muted text-sm">
-              &copy; {currentYear} Operation Red & Black. All rights reserved.
+            <p className="text-gray-500 text-[10px] font-geist-mono uppercase tracking-widest">
+              &copy; {currentYear} RED_BLACK_ARCHIVE.SEC
             </p>
-            <p className="text-gray-muted text-xs mt-1">
-              Built with{' '}
-              <span className="text-red-accent">Next.js</span>
+            <p className="text-gray-600 text-[8px] mt-1 font-geist-mono uppercase tracking-[0.2em]">
+              STATUS: <span className="text-red-accent animate-pulse">ACTIVE_SESSION</span>
             </p>
           </motion.div>
         </div>
@@ -77,7 +76,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mt-8 pt-8 border-t border-black-tertiary"
         >
-          <div className="h-1 w-20 bg-gradient-to-r from-red-primary to-red-accent mx-auto rounded-full" />
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-red-primary/30 to-transparent" />
         </motion.div>
       </div>
     </footer>

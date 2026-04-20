@@ -53,10 +53,12 @@ export default function FeaturedPosts() {
                 viewport={{ once: true }}
               >
                 <Link href={`/blog/${post.id}`} className="block group h-full">
-                  <article className="bg-black-secondary border border-red-primary/20 rounded-xl overflow-hidden hover:border-red-primary/50 transition-all duration-300 h-full flex flex-col shadow-2xl shadow-black">
+                  <article className="bg-black border border-red-primary/30 hover:border-red-primary transition-all duration-100 h-full flex flex-col relative group">
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-red-accent z-20" />
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-red-accent z-20" />
                     {/* Image/Media Section */}
                     {hasMedia && (
-                      <div className="relative aspect-video bg-black-tertiary overflow-hidden">
+                      <div className="relative aspect-video bg-transparent overflow-hidden">
                         {post.localVideo ? (
                           <video
                             src={post.localVideo}
@@ -87,47 +89,35 @@ export default function FeaturedPosts() {
                           </div>
                         )}
 
-                        {/* Badge */}
+                        {/* Dossier Badge */}
                         <div className="absolute top-4 left-4 z-20">
-                          <span className="px-3 py-1 bg-red-primary/90 text-white text-xs font-semibold rounded-full shadow-lg">
-                            {post.badge}
+                          <span className="px-3 py-1 bg-black border border-red-primary font-geist-mono text-red-accent text-[10px] font-bold uppercase tracking-widest flex items-center shadow-lg shadow-black/50">
+                            <span className="mr-2 text-red-primary animate-pulse">●</span> {"//"} {post.badge}
                           </span>
                         </div>
                       </div>
                     )}
 
                     {/* Content */}
-                    <div className="p-8 flex-grow flex flex-col relative">
+                    <div className="p-8 flex-grow flex flex-col relative z-10">
                       {!hasMedia && (
-                        <div className="absolute top-8 right-8">
-                           <span className="px-3 py-1 bg-red-primary/10 text-red-accent border border-red-primary/20 text-xs font-semibold rounded-full">
-                             {post.badge}
-                           </span>
+                        <div className="absolute top-8 right-8 z-20">
+                          <span className="px-3 py-1 bg-black border border-red-primary font-geist-mono text-red-accent text-[10px] font-bold uppercase tracking-widest flex items-center shadow-lg shadow-black/50">
+                            <span className="mr-2 text-red-primary animate-pulse">●</span> {"//"} {post.badge}
+                          </span>
                         </div>
                       )}
-                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-red-accent transition-colors duration-300">
-                        {post.title}
+                      <h3 className="text-xl sm:text-2xl font-bold font-geist-mono text-white mb-4 group-hover:text-red-accent transition-colors duration-100 uppercase tracking-widest border-b border-white/10 pb-4">
+                        &gt;_ {post.title}
                       </h3>
-                      <p className="text-gray-muted leading-relaxed flex-grow line-clamp-3">
+                      <p className="text-gray-muted leading-relaxed flex-grow line-clamp-3 font-geist-mono text-sm tracking-wide">
                         {post.description}
                       </p>
 
                       {/* Read more */}
-                      <div className="mt-8 flex items-center text-red-accent text-sm font-bold tracking-widest uppercase group-hover:gap-4 gap-2 transition-all">
-                        <span>The Full Log</span>
-                        <svg
-                          className="w-5 h-5 transition-transform duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
+                      <div className="mt-8 flex justify-between items-center text-red-accent text-xs font-geist-mono font-bold tracking-widest uppercase transition-all">
+                        <span className="text-white/40">[{post.date || '████'}]</span>
+                        <span className="bg-red-accent/10 border border-red-primary/30 px-3 py-2 group-hover:bg-red-accent group-hover:text-white transition-colors duration-100">[ DECRYPT FILE ]</span>
                       </div>
                     </div>
                   </article>

@@ -8,6 +8,12 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import blogPostsData from '@/src/data/blog-posts.json';
 import { BlogPost } from '@/src/types/blog';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Cinematic Logs | Decryption Active",
+  description: "Browse the complete classified archive of Operation Red & Black. Pre-production intelligence, BTS surveillance, and technical script logs.",
+};
 
 export default function BlogPage() {
   const [filter, setFilter] = useState('All');
@@ -48,7 +54,7 @@ export default function BlogPage() {
 
           {/* Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-16">
-            {categories.map((cat, idx) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
@@ -66,7 +72,7 @@ export default function BlogPage() {
           {/* Blog Grid */}
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+            className="columns-1 md:columns-2 lg:columns-3 gap-8 lg:gap-10 space-y-8 lg:space-y-10"
           >
             <AnimatePresence mode='popLayout'>
               {filteredPosts.map((post) => {
@@ -81,12 +87,15 @@ export default function BlogPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4 }}
+                    className="break-inside-avoid shadow-lg relative group h-full mb-8 lg:mb-0"
                   >
                     <Link href={`/blog/${post.id}`} className="block group h-full">
-                      <article className="bg-black-secondary border border-red-primary/10 rounded-2xl overflow-hidden hover:border-red-primary/40 transition-all duration-500 h-full flex flex-col hover:shadow-2xl hover:shadow-red-primary/5">
+                      <article className="bg-black border border-red-primary/30 hover:border-red-primary transition-all duration-100 h-full flex flex-col relative group">
+                        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-red-accent z-20" />
+                        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-red-accent z-20" />
                         {/* Media Section */}
                         {hasMedia && (
-                          <div className="relative aspect-[16/10] bg-black-tertiary overflow-hidden">
+                          <div className="relative aspect-[16/10] bg-transparent overflow-hidden">
                             {post.localVideo ? (
                               <video
                                 src={post.localVideo}
@@ -119,9 +128,9 @@ export default function BlogPage() {
                               </div>
                             )}
 
-                            <div className="absolute top-4 left-4 z-10">
-                              <span className="px-3 py-1 bg-black-primary/80 backdrop-blur-md text-red-accent border border-red-primary/20 text-[10px] font-bold uppercase tracking-widest rounded-md">
-                                {post.badge}
+                            <div className="absolute top-4 left-4 z-20">
+                              <span className="px-3 py-1 bg-black border border-red-primary font-geist-mono text-red-accent text-[10px] font-bold uppercase tracking-widest flex items-center shadow-lg shadow-black/50">
+                                <span className="mr-2 text-red-primary animate-pulse">●</span> {"//"} {post.badge}
                               </span>
                             </div>
                           </div>
@@ -130,26 +139,21 @@ export default function BlogPage() {
                         {/* Content */}
                         <div className="p-8 flex-grow flex flex-col relative">
                           {!hasMedia && (
-                            <div className="mb-4">
-                               <span className="px-2 py-1 bg-red-primary/10 text-red-accent border border-red-primary/20 text-[10px] font-bold uppercase tracking-widest rounded-md">
-                                 {post.badge}
-                               </span>
+                            <div className="mb-4 z-20 relative">
+                              <span className="px-3 py-1 inline-flex items-center bg-black border border-red-primary font-geist-mono text-red-accent text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-black/50">
+                                <span className="mr-2 text-red-primary animate-pulse">●</span> {"//"} {post.badge}
+                              </span>
                             </div>
                           )}
-                          <h3 className="text-xl font-bold text-white mb-4 group-hover:text-red-accent transition-colors duration-300 line-clamp-2">
-                            {post.title}
+                          <h3 className="text-xl font-bold font-geist-mono text-white mb-4 group-hover:text-red-accent transition-colors duration-100 uppercase tracking-widest border-b border-white/10 pb-4">
+                            &gt;_ {post.title}
                           </h3>
-                          <p className="text-gray-muted text-sm leading-relaxed line-clamp-3 mb-8 flex-grow">
+                          <p className="text-gray-muted text-sm leading-relaxed line-clamp-3 mb-8 flex-grow font-geist-mono">
                             {post.description}
                           </p>
-                          <div className="flex items-center justify-between mt-auto pt-6 border-t border-red-primary/5">
-                            <span className="text-gray-600 text-xs font-mono">{post.date}</span>
-                            <div className="text-red-accent text-xs font-bold uppercase tracking-widest flex items-center group-hover:gap-2 transition-all">
-                              Read Log
-                              <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                              </svg>
-                            </div>
+                          <div className="flex justify-between items-center mt-auto pt-4 text-red-accent text-[10px] font-geist-mono font-bold tracking-widest uppercase transition-all">
+                            <span className="text-white/40">[{post.date || '████'}]</span>
+                            <span className="bg-red-accent/10 border border-red-primary/30 px-3 py-2 group-hover:bg-red-accent group-hover:text-white transition-colors duration-100">[ DECRYPT FILE ]</span>
                           </div>
                         </div>
                       </article>

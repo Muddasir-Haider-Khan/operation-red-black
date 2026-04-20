@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 export default function CTASection() {
   return (
@@ -13,15 +12,14 @@ export default function CTASection() {
       <div className="absolute inset-0">
         <motion.div
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
+            opacity: [0.1, 0.2, 0.1],
           }}
           transition={{
-            duration: 4,
+            duration: 8,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-primary/10 rounded-full blur-3xl"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.1),transparent_70%)]"
         />
       </div>
 
@@ -33,22 +31,18 @@ export default function CTASection() {
           viewport={{ once: true }}
         >
           {/* Counter */}
-          <div className="inline-flex items-center justify-center mb-8">
+          <div className="inline-flex items-center justify-center mb-8 relative">
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative p-6 border-2 border-red-primary/50 bg-black shadow-[0_0_20px_rgba(220,38,38,0.2)]"
             >
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-primary to-red-secondary flex items-center justify-center shadow-lg shadow-red-primary/30">
-                <span className="text-3xl font-bold text-white">12</span>
-              </div>
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="absolute inset-0 rounded-full border-2 border-red-accent/30"
-              />
+              <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-red-accent" />
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-red-accent" />
+              <span className="text-4xl font-bold font-geist-mono text-white tracking-tighter">12</span>
+              <div className="text-[10px] font-geist-mono text-red-accent/60 mt-1 uppercase tracking-widest">Active_Ops</div>
             </motion.div>
           </div>
 
@@ -58,12 +52,9 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+            className="text-4xl sm:text-5xl lg:text-7xl font-bold font-geist-mono text-white mb-6 uppercase tracking-widest"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-accent to-red-primary">
-              Trailer
-            </span>{' '}
-            Out Now!
+            &gt;_ MISSION: <span className="text-red-accent">LIVE</span>
           </motion.h2>
 
           <motion.p
@@ -71,10 +62,9 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-lg sm:text-xl text-gray-muted mb-10 max-w-2xl mx-auto"
+            className="text-base sm:text-lg text-gray-muted mb-10 max-w-2xl mx-auto font-geist-mono border-l-2 border-red-primary/30 pl-6 text-left sm:text-center sm:border-l-0 sm:pl-0"
           >
-            Witness the beginning of something extraordinary. Watch the official trailer
-            and get a glimpse of the action-packed journey that awaits.
+            Visual feed established. The official trailer log is now available for decryption. Observe the trajectory of Operation Red & Black.
           </motion.p>
 
           {/* CTA Button */}
@@ -84,31 +74,25 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <Link href="/blog">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative inline-flex items-center px-10 py-5 text-lg font-bold text-white overflow-hidden rounded-lg"
-              >
-                {/* Button background */}
-                <span className="absolute inset-0 bg-gradient-to-r from-red-primary via-red-accent to-red-primary bg-[length:200%_100%] animate-gradient" />
-                <span className="absolute inset-0 bg-gradient-to-r from-red-secondary via-red-primary to-red-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <a 
+              href="https://youtu.be/h1AySNglvgU" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative inline-flex items-center px-10 py-5 text-sm font-bold font-geist-mono text-white overflow-hidden border-2 border-red-primary bg-black hover:bg-red-primary transition-all duration-100 uppercase tracking-widest shadow-[0_0_20px_rgba(220,38,38,0.3)]"
+            >
+              <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-red-accent group-hover:border-white" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-red-accent group-hover:border-white" />
 
-                {/* Glow effect */}
-                <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_30px_rgba(239,68,68,0.5)]" />
-
-                <span className="relative flex items-center">
-                  <svg
-                    className="mr-3 w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  Watch Now!
-                </span>
-              </motion.button>
-            </Link>
+              <span className="relative flex items-center">
+                &lt; DECRYPT_TRAILER_LOG &gt;
+              </span>
+            </motion.button>
+            </a>
           </motion.div>
         </motion.div>
       </div>

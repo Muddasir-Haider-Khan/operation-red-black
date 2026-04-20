@@ -9,4 +9,5 @@ export interface BlogPost {
   videoEmbed?: string;
   localVideo?: string;
   content?: string;
+  pdfUrl?: string;
 }

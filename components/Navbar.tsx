@@ -11,28 +11,30 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-50 bg-black-primary/95 backdrop-blur-md border-b border-red-primary/20"
+      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-black-primary/95 border-b border-red-primary/40 shadow-[0_4px_30px_rgba(220,38,38,0.1)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-white font-bold text-lg tracking-wider"
+              whileHover={{ scale: 1.02, x: 5 }}
+              whileTap={{ scale: 0.98 }}
+              className="text-white font-bold text-base tracking-widest uppercase flex items-center font-geist-mono"
             >
-              <span className="text-red-accent">OPERATION</span>{' '}
-              <span className="text-white">RED & BLACK</span>
+              <span className="text-red-accent animate-pulse mr-2">●</span>
+              <span className="text-red-accent">OP:</span>
+              <span className="text-white/90">RED_BLACK</span>
             </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="nav-link">
+            <Link href="/" className="block px-3 py-2 text-xs font-geist-mono uppercase tracking-widest font-medium nav-link hover:text-red-accent">
               Home
             </Link>
-            <Link href="/blog" className="nav-link">
+            <Link href="/blog" className="block px-3 py-2 text-xs font-geist-mono uppercase tracking-widest font-medium nav-link hover:text-red-accent">
               Blog
             </Link>
           </div>
@@ -84,10 +86,10 @@ export default function Navbar() {
         className="md:hidden overflow-hidden bg-black-secondary"
       >
         <div className="px-4 py-4 space-y-4">
-          <Link href="/" className="nav-link block" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/" className="block px-3 py-2 text-xs font-geist-mono uppercase tracking-widest font-medium nav-link hover:text-red-accent" onClick={() => setIsMenuOpen(false)}>
             Home
           </Link>
-          <Link href="/blog" className="nav-link block" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/blog" className="block px-3 py-2 text-xs font-geist-mono uppercase tracking-widest font-medium nav-link hover:text-red-accent" onClick={() => setIsMenuOpen(false)}>
             Blog
           </Link>
         </div>
