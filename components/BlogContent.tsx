@@ -86,7 +86,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
                     <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-red-accent z-20" />
                     {/* Media Section */}
                     {hasMedia && (
-                      <div className="relative aspect-[16/10] bg-transparent overflow-hidden">
+                      <div className="relative bg-transparent overflow-hidden">
                         {post.localVideo ? (
                           <video
                             src={post.localVideo}
@@ -95,18 +95,20 @@ export default function BlogContent({ posts }: BlogContentProps) {
                             playsInline
                             onMouseOver={(e) => e.currentTarget.play()}
                             onMouseOut={(e) => e.currentTarget.pause()}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
                           />
                         ) : mediaSource ? (
                           <Image
                             src={mediaSource}
                             alt={post.title}
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            width={0}
+                            height={0}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            style={{ width: '100%', height: 'auto' }}
+                            className="transition-transform duration-700 group-hover:scale-110"
                           />
                         ) : null}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black-primary/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black-primary/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
                         
                         {/* Play Indicator for Video */}
                         {(post.videoEmbed || post.localVideo) && (

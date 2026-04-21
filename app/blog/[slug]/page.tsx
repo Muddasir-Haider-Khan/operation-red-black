@@ -76,14 +76,14 @@ export default async function BlogPostPage({
           </header>
 
           {/* Main Media Section */}
-          <div className="relative aspect-video bg-black border-2 border-red-primary/30 overflow-hidden mb-12 flex items-center justify-center group">
+          <div className="relative bg-black border-2 border-red-primary/30 overflow-hidden mb-12 flex items-center justify-center group w-full">
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-red-accent z-20 pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-accent z-20 pointer-events-none" />
             {post.videoEmbed ? (
               <iframe
                 src={post.videoEmbed}
                 title={post.title}
-                className="w-full h-full border-0"
+                className="w-full aspect-video border-0 relative z-10"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -92,21 +92,24 @@ export default async function BlogPostPage({
               <video
                 src={post.localVideo}
                 controls
-                className="w-full h-full object-contain bg-black"
+                className="w-full h-auto object-contain bg-black relative z-10"
                 playsInline
               />
             ) : post.image ? (
               <Image
                 src={post.image}
                 alt={post.title}
-                fill
+                width={0}
+                height={0}
+                sizes="(max-width: 1200px) 100vw, 896px"
+                style={{ width: '100%', height: 'auto' }}
                 priority
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="transition-transform duration-700 group-hover:scale-105 relative z-10"
               />
             ) : (
               <InterceptVisualizer />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black-primary/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black-primary/60 via-transparent to-transparent pointer-events-none z-20" />
           </div>
 
           {/* Body Content */}
@@ -167,7 +170,7 @@ export default async function BlogPostPage({
           </div>
 
           {/* Image Gallery */}
-          <Gallery images={post.images || []} />
+          <Gallery images={post.images && post.images.length > 0 ? post.images : (post.image ? [post.image] : [])} />
 
           {/* Back Navigation */}
           <div className="mt-16 pt-8 border-t border-black-secondary flex justify-center">

@@ -19,7 +19,7 @@ export default function Gallery({ images }: GalleryProps) {
         </h3>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="columns-1 md:columns-2 gap-8 space-y-8">
         {images.map((img, index) => (
           <motion.div
             key={index}
@@ -27,18 +27,18 @@ export default function Gallery({ images }: GalleryProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className={`relative overflow-hidden rounded-2xl border border-red-primary/10 shadow-2xl group ${
-              index === 0 ? 'md:col-span-2 aspect-[21/9]' : 'aspect-square'
-            }`}
+            className="break-inside-avoid relative overflow-hidden rounded-2xl border border-red-primary/10 shadow-2xl group"
           >
             <Image
               src={img}
               alt={`Cinematic gallery asset ${index + 1}`}
-              fill
-              className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              width={0}
+              height={0}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ width: '100%', height: 'auto' }}
+              className="transition-transform duration-1000 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-red-primary/40 to-transparent pointer-events-none" />
           </motion.div>
         ))}
