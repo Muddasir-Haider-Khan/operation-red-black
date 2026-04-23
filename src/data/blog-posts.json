@@ -219,7 +219,8 @@
     "description": "Critical Creative Reflection Question 2: How does your product engage with audiences and how would it be distributed as a real media text?",
     "badge": "CCR",
     "date": "2026",
-    "videoEmbed": "https://www.youtube.com/embed/4KSWvFaybf4"
+    "videoEmbed": "https://www.youtube.com/embed/4KSWvFaybf4",
+    "featured": true
   },
   {
     "id": "ccr-q3",

@@ -10,4 +10,5 @@ export interface BlogPost {
   localVideo?: string;
   content?: string;
   pdfUrl?: string;
+  featured?: boolean;
 }

@@ -13,7 +13,7 @@ export default function FeaturedPosts() {
     return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   };
 
-  const posts = (blogPostsData as BlogPost[]).slice(0, 2);
+  const posts = (blogPostsData as BlogPost[]).filter(post => post.featured);
   
   return (
     <section className="py-20 lg:py-32 bg-black-primary relative">
@@ -39,7 +39,7 @@ export default function FeaturedPosts() {
         </motion.div>
 
         {/* Posts Grid */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className={`grid ${posts.length > 1 ? 'md:grid-cols-2' : 'max-w-2xl mx-auto'} gap-8 lg:gap-12`}>
           {posts.map((post: BlogPost, index) => {
             const hasMedia = post.image || post.videoEmbed || post.localVideo || (post.images && post.images.length > 0);
             const mediaSource = post.image || (post.images && post.images[0]) || (post.videoEmbed ? getYouTubeThumbnail(post.videoEmbed) : null);
